@@ -2,6 +2,10 @@
 
 This is an example project for learning Google Polymer and Web Components. I've created this repository for my workshop at [IrDevConf](http://conf.wsschool.org/devconf/).
 
+### Walkthrough
+
+You could follow the [walkthrough.md](walkthrough.md) file to create the project from scratch.
+
 ### Setup
 
 ##### Prerequisites
