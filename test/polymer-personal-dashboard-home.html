@@ -18,29 +18,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script src="../bower_components/web-component-tester/browser.js"></script>
 
   <!-- Import the element to test -->
-  <link rel="import" href="../src/my-view1.html">
+  <link rel="import" href="../src/polymer-personal-dashboard-home.html">
 
 </head>
 <body>
 
   <test-fixture id="basic">
     <template>
-       <my-view1></my-view1>
+       <polymer-personal-dashboard-home></polymer-personal-dashboard-home>
     </template>
   </test-fixture>
 
   <script>
-    suite('my-view1 tests', function() {
+    suite('polymer-personal-dashboard-home tests', function() {
       var home;
 
       setup(function() {
         home = fixture('basic');
       });
 
-      test('Number in circle should be 1', function() {
-        var circle = Polymer.dom(home.root).querySelector('.circle');
-        assert.equal(circle.textContent, '1');
-      })
+//      test('Number in circle should be 1', function() {
+//        var circle = Polymer.dom(home.root).querySelector('.circle');
+//        assert.equal(circle.textContent, '1');
+//      })
     });
   </script>
 

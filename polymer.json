@@ -1,9 +1,9 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/polymer-personal-dashboard.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html"
+    "src/polymer-personal-dashboard-home.html",
+    "src/polymer-personal-dashboard-tasks.html",
+    "src/polymer-personal-dashboard-calendar.html"
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "name": "My App",
-  "short_name": "My App",
+  "name": "Personal Dashboard",
+  "short_name": "Dashboard",
     "icons": [{
       "src": "images/app-icon-32.png",
       "type": "image/png",

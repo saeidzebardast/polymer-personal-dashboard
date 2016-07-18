@@ -16,3 +16,11 @@ Create empty Polymer project with [app-drawer-template](https://github.com/Polym
 * ```mkdir polymer-personal-dashboard```
 * ```cd polymer-personal-dashboard```
 * ```polymer init app-drawer-template```
+
+# Required Elements
+
+We need to use some web components to enrich our dashboard:
+
+## [&lt;moment-js&gt;](https://github.com/saeidzebardast/moment-js)
+
+* ```bower install --save moment-js```

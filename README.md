@@ -12,7 +12,12 @@ You could follow the [walkthrough.md](walkthrough.md) file to create the project
 
 Install [polymer-cli](https://github.com/Polymer/polymer-cli):
 
-    npm install -g polymer-cli
+    npm install -g bower polymer-cli
+
+##### Install dependencies:
+Install all dependencies via bower:
+
+    bower install
 
 ### Start the development server
 
