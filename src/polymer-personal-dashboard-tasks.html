@@ -9,6 +9,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="elements/ppd-task/ppd-task.html">
 
 <dom-module id="polymer-personal-dashboard-tasks">
 
@@ -19,6 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
         padding: 10px;
       }
+
       .card {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
         padding: 16px;
@@ -27,6 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: #fff;
         color: #757575;
       }
+
       .circle {
         display: inline-block;
         height: 64px;
@@ -38,6 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: #555;
         text-align: center;
       }
+
       h1 {
         font-size: 22px;
         margin: 16px 0;
@@ -46,7 +53,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <h1>Under Construction</h1>
+      <h1>Tasks</h1>
+      <paper-input label="New Task" value="{{newTaskTitle}}" required>
+        <paper-icon-button suffix icon="add" on-tap="_add"></paper-icon-button>
+      </paper-input>
+      <p>
+        <template is="dom-repeat" items="[[tasks]]">
+          <ppd-task task="[[item]]"></ppd-task>
+        </template>
+      </p>
     </div>
 
   </template>
@@ -55,7 +70,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
 
-      is: 'polymer-personal-dashboard-tasks'
+      is: 'polymer-personal-dashboard-tasks',
+
+      properties: {
+        /**
+         * Title of the new task to add.
+         */
+        newTaskTitle: String,
+
+        /**
+         * List of added task
+         */
+        tasks: {
+          type: Array,
+          value: []
+        }
+      },
+
+      listeners: {
+        'remove-task': '_remove'
+      },
+
+      /**
+       * Add a new task.
+       *
+       * @private
+         */
+      _add: function () {
+        this.push('tasks', {title: this.newTaskTitle, index: this.tasks.length});
+        this.fire('notify', {text: this.newTaskTitle + ' is added!'});
+        this.set('newTaskTitle', '');
+      },
+
+      /**
+       * Remove the task by its index.
+       *
+       * @param e
+       * @private
+         */
+      _remove: function (e) {
+        for (var i = 0; i < this.tasks.length; i++) {
+          if (this.tasks[i].index === e.detail.index) {
+            this.fire('notify', {text: this.tasks[i].title + ' is removed!'});
+            this.splice('tasks', i, 1);
+            break;
+          }
+        }
+      }
 
     });
 

@@ -1,0 +1,43 @@
+<link rel="import" href="../../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
+
+<dom-module id="ppd-task">
+  <style>
+    :host {
+      display: block;
+    }
+
+    paper-checkbox[checked] {
+      opacity: 0.5;
+    }
+  </style>
+  <template>
+    <paper-item>
+      <paper-checkbox>[[task.title]]</paper-checkbox>
+      <paper-icon-button suffix icon="delete" on-tap="_remove"></paper-icon-button>
+    </paper-item>
+  </template>
+  <script>
+    Polymer({
+      is: 'ppd-task',
+
+      properties: {
+        /**
+         * A task object
+         */
+        task: {
+          type: Object
+        }
+      },
+
+      /**
+       * Remove the task item.
+       *
+       * @private
+       */
+      _remove: function () {
+        this.fire('remove-task', {index: this.task.index});
+      }
+    });
+  </script>
+</dom-module>

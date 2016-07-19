@@ -101,6 +101,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     </app-drawer-layout>
 
+    <paper-toast id="toast"></paper-toast>
   </template>
 
   <script>
@@ -115,8 +116,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           type: String,
           reflectToAttribute: true,
           observer: '_pageChanged'
-        },
+        }
 
+      },
+
+      listeners: {
+        'notify':'_notify'
       },
 
       observers: [
@@ -131,6 +136,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // load page import on demand.
         this.importHref(
           this.resolveUrl('polymer-personal-dashboard-' + page + '.html'), null, null, true);
+      },
+
+      /**
+       * Notify and show the toast message.
+       *
+       * @param e
+       * @private
+         */
+      _notify: function(e) {
+        this.$.toast.text = e.detail.text;
+        this.$.toast.open();
       }
 
     });

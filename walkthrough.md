@@ -17,10 +17,30 @@ Create empty Polymer project with [app-drawer-template](https://github.com/Polym
 * ```cd polymer-personal-dashboard```
 * ```polymer init app-drawer-template```
 
-# Required Elements
+# Create Elements and Pages
 
-We need to use some web components to enrich our dashboard:
+## Home Page
 
-## [&lt;moment-js&gt;](https://github.com/saeidzebardast/moment-js)
+### Third Party Elements
 
-* ```bower install --save moment-js```
+#### [&lt;moment-js&gt;](https://github.com/saeidzebardast/moment-js)
+```bower install --save moment-js```
+
+## Tasks Page
+
+### &lt;ppd-task&gt;
+```mkdir -p src/elements/ppd-task/ && touch src/elements/ppd-task/ppd-task.html```
+
+### Third Party Elements
+
+[&lt;paper-input&gt;](https://elements.polymer-project.org/elements/paper-input)
+```bower install --save PolymerElements/paper-input```
+
+[&lt;paper-item&gt;](https://elements.polymer-project.org/elements/paper-item)
+```bower install --save PolymerElements/paper-item```
+
+[&lt;paper-checkbox&gt;](https://elements.polymer-project.org/elements/paper-checkbox)
+```bower install --save PolymerElements/paper-checkbox```
+
+[&lt;paper-toast&gt;](https://elements.polymer-project.org/elements/paper-toast)
+```bower install --save PolymerElements/paper-toast```
