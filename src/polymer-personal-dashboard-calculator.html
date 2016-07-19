@@ -1,0 +1,206 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+
+<dom-module id="polymer-personal-dashboard-calculator">
+
+  <template>
+
+    <style is="custom-style">
+      .flex-vertical {
+        @apply(--layout-vertical);
+        @apply(--layout-center);
+      }
+
+      .flex-horizontal {
+        @apply(--layout-horizontal);
+        @apply(--layout-end);
+      }
+
+      paper-button.clear {
+        background-color: var(--paper-red-500);
+        color: white
+      }
+
+      paper-button.blue {
+        background-color: var(--paper-blue-500);
+        color: white
+      }
+
+      paper-button.operator {
+        background-color: var(--paper-teal-500);
+        color: white
+      }
+    </style>
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+      }
+
+      .circle {
+        display: inline-block;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        background: #ddd;
+        line-height: 64px;
+        font-size: 30px;
+        color: #555;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #212121;
+      }
+
+      paper-input {
+        text-align: right;
+      }
+
+      paper-button {
+        margin-bottom: 5px;
+      }
+    </style>
+
+    <div class="card">
+      <h1>Calculator</h1>
+
+      <div class="container">
+        <div class="flex-horizontal">
+          <div class="flex-vertical">
+            <div class="flex-horizontal">
+              <paper-input value="[[result]]">
+                <div prefix>Result</div>
+              </paper-input>
+            </div>
+            <div class="flex-horizontal">
+              <paper-button raised on-tap="_updateResult">7</paper-button>
+              <paper-button raised on-tap="_updateResult">8</paper-button>
+              <paper-button raised on-tap="_updateResult">9</paper-button>
+            </div>
+            <div class="flex-horizontal">
+              <paper-button raised on-tap="_updateResult">4</paper-button>
+              <paper-button raised on-tap="_updateResult">5</paper-button>
+              <paper-button raised on-tap="_updateResult">6</paper-button>
+            </div>
+            <div class="flex-horizontal">
+              <paper-button raised on-tap="_updateResult">1</paper-button>
+              <paper-button raised on-tap="_updateResult">2</paper-button>
+              <paper-button raised on-tap="_updateResult">3</paper-button>
+            </div>
+            <div class="flex-horizontal">
+              <paper-button raised on-tap="_updateResult">0</paper-button>
+              <paper-button raised on-tap="_updateResult">.</paper-button>
+              <paper-button class="blue" raised on-tap="_updateResult">=</paper-button>
+            </div>
+          </div>
+          <div class="flex-vertical">
+            <paper-button class="clear" raised on-tap="_updateResult">AC</paper-button>
+            <paper-button class="operator" raised on-tap="_updateResult">/</paper-button>
+            <paper-button class="operator" raised on-tap="_updateResult">*</paper-button>
+            <paper-button class="operator" raised on-tap="_updateResult">-</paper-button>
+            <paper-button class="operator" raised on-tap="_updateResult">+</paper-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'polymer-personal-dashboard-calculator',
+
+      properties: {
+        /**
+         * Math query to execute or result of it;
+         */
+        result: {
+          type: String,
+          value: 0
+        }
+      },
+
+      /**
+       * Update result based on the pressed key.
+       *
+       * @param e
+       * @private
+         */
+      _updateResult: function (e) {
+        var pressedValue = e.path[0].innerHTML;
+
+        switch (pressedValue) {
+          case '.':
+          case '0':
+          case '1':
+          case '2':
+          case '3':
+          case '4':
+          case '5':
+          case '6':
+          case '7':
+          case '8':
+          case '9':
+          case '-':
+          case '+':
+            if (Number(this.result) === 0 && pressedValue !== '/' && pressedValue !== '*') {
+              this.set('result', pressedValue);
+            } else {
+              this.set('result', this.result += pressedValue);
+            }
+            break;
+
+          case '/':
+          case '*':
+            if (Number(this.result) !== 0) {
+              this.set('result', this.result += pressedValue);
+            }
+            break;
+
+          case 'AC':
+            this.set('result', 0);
+            break;
+
+          case '=':
+            try {
+              this.set('result', eval(this.result));
+            } catch (ex) {
+              this.fire('notify', {text: 'The math query is not valid!'});
+            }
+            break;
+        }
+      }
+
+    });
+
+  </script>
+
+</dom-module>

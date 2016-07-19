@@ -4,6 +4,6 @@
   "fragments": [
     "src/polymer-personal-dashboard-home.html",
     "src/polymer-personal-dashboard-tasks.html",
-    "src/polymer-personal-dashboard-calendar.html"
+    "src/polymer-personal-dashboard-calculator.html"
   ]
 }

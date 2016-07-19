@@ -19,6 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="polymer-personal-dashboard-icons.html">
 
 <dom-module id="polymer-personal-dashboard">
@@ -77,7 +78,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="home" href="/home">Home</a>
           <a name="tasks" href="/tasks">Tasks</a>
-          <a name="calendar" href="/calendar">Calendar</a>
+          <a name="calculator" href="/calculator">Calculator</a>
         </iron-selector>
       </app-drawer>
 
@@ -94,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
           <polymer-personal-dashboard-home name="home"></polymer-personal-dashboard-home>
           <polymer-personal-dashboard-tasks name="tasks"></polymer-personal-dashboard-tasks>
-          <polymer-personal-dashboard-calendar name="calendar"></polymer-personal-dashboard-calendar>
+          <polymer-personal-dashboard-calculator name="calculator"></polymer-personal-dashboard-calculator>
         </iron-pages>
 
       </app-header-layout>

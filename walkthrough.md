@@ -28,19 +28,34 @@ Create empty Polymer project with [app-drawer-template](https://github.com/Polym
 
 ## Tasks Page
 
-### &lt;ppd-task&gt;
+### Elements
+
+#### &lt;ppd-task&gt;
 ```mkdir -p src/elements/ppd-task/ && touch src/elements/ppd-task/ppd-task.html```
 
 ### Third Party Elements
 
-[&lt;paper-input&gt;](https://elements.polymer-project.org/elements/paper-input)
+#### [&lt;paper-input&gt;](https://elements.polymer-project.org/elements/paper-input)
 ```bower install --save PolymerElements/paper-input```
 
-[&lt;paper-item&gt;](https://elements.polymer-project.org/elements/paper-item)
+#### [&lt;paper-item&gt;](https://elements.polymer-project.org/elements/paper-item)
 ```bower install --save PolymerElements/paper-item```
 
-[&lt;paper-checkbox&gt;](https://elements.polymer-project.org/elements/paper-checkbox)
+#### [&lt;paper-checkbox&gt;](https://elements.polymer-project.org/elements/paper-checkbox)
 ```bower install --save PolymerElements/paper-checkbox```
 
-[&lt;paper-toast&gt;](https://elements.polymer-project.org/elements/paper-toast)
+#### [&lt;paper-toast&gt;](https://elements.polymer-project.org/elements/paper-toast)
 ```bower install --save PolymerElements/paper-toast```
+
+## Calculator Page
+
+### Third Party Elements
+
+#### [&lt;paper-button&gt;](https://elements.polymer-project.org/elements/paper-button)
+```bower install --save PolymerElements/paper-button```
+
+#### [&lt;iron-flex-layout&gt;](https://elements.polymer-project.org/elements/iron-flex-layout)
+```bower install --save PolymerElements/iron-flex-layout```
+
+#### [&lt;paper-styles&gt;](https://elements.polymer-project.org/elements/paper-styles)
+```bower install --save PolymerElements/paper-styles```
