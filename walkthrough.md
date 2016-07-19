@@ -47,6 +47,9 @@ Create empty Polymer project with [app-drawer-template](https://github.com/Polym
 #### [&lt;paper-toast&gt;](https://elements.polymer-project.org/elements/paper-toast)
 ```bower install --save PolymerElements/paper-toast```
 
+#### [&lt;iron-localstorage&gt;](https://elements.polymer-project.org/elements/iron-localstorage)
+```bower install --save PolymerElements/iron-localstorage```
+
 ## Calculator Page
 
 ### Third Party Elements
@@ -54,8 +57,8 @@ Create empty Polymer project with [app-drawer-template](https://github.com/Polym
 #### [&lt;paper-button&gt;](https://elements.polymer-project.org/elements/paper-button)
 ```bower install --save PolymerElements/paper-button```
 
-#### [&lt;iron-flex-layout&gt;](https://elements.polymer-project.org/elements/iron-flex-layout)
-```bower install --save PolymerElements/iron-flex-layout```
-
 #### [&lt;paper-styles&gt;](https://elements.polymer-project.org/elements/paper-styles)
 ```bower install --save PolymerElements/paper-styles```
+
+#### [&lt;iron-flex-layout&gt;](https://elements.polymer-project.org/elements/iron-flex-layout)
+```bower install --save PolymerElements/iron-flex-layout```

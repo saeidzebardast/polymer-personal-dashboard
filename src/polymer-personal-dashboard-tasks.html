@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="elements/ppd-task/ppd-task.html">
 
 <dom-module id="polymer-personal-dashboard-tasks">
@@ -62,7 +63,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </template>
       </p>
     </div>
-
+    <iron-localstorage name="tasks" value="{{tasks}}"
+                       on-iron-localstorage-load-empty="_initializeDefaultTasks"></iron-localstorage>
   </template>
 
   <script>
@@ -88,6 +90,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       listeners: {
         'remove-task': '_remove'
+      },
+
+      /**
+       * Initialize default tasks for local storage.
+       */
+      _initializeDefaultTasks: function() {
+        this.set('tasks', []);
       },
 
       /**
