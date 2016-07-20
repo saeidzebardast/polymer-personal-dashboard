@@ -54,7 +54,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="card">
       <h1>Tasks</h1>
-      <paper-input label="New Task" value="{{newTaskTitle}}" required>
+      <paper-input label="New Task" value="{{newTaskTitle}}" required on-keydown="_checkEnterToAddTask">
         <paper-icon-button suffix icon="add" on-tap="_add"></paper-icon-button>
       </paper-input>
       <p>
@@ -97,6 +97,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       _initializeDefaultTasks: function() {
         this.set('tasks', []);
+      },
+
+      /**
+       * Check if user press Enter to add a task.
+       */
+      _checkEnterToAddTask: function (e) {
+        if (e.keyCode === 13) {
+          this._add();
+        }
       },
 
       /**
